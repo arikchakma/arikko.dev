@@ -28,9 +28,18 @@ const ContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    padding: 200px 80px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 200px 30px;
+  }
 `;
 
 const Heading = styled.h1`
+  min-width: 350px;
   font-family: Recoleta;
   font-style: normal;
   font-weight: bold;
@@ -42,4 +51,12 @@ const Heading = styled.h1`
   -webkit-text-fill-color: transparent;
 
   user-select: none;
+
+  @media screen and (max-width: 768px) {
+    font-size: 65px;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 35px;
+  }
 `;
