@@ -36,6 +36,10 @@ const ContentWrapper = styled.div`
   @media screen and (max-width: 450px) {
     padding: 200px 30px;
   }
+
+  @media screen and (max-width: 320px) {
+    padding: 200px 20px;
+  }
 `;
 
 const Heading = styled.h1`
@@ -58,5 +62,9 @@ const Heading = styled.h1`
 
   @media screen and (max-width: 450px) {
     font-size: 35px;
+  }
+
+  @media screen and (max-width: 320px) {
+    min-width: 300px;
   }
 `;
