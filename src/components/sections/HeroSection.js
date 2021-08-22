@@ -5,7 +5,11 @@ import SEO from '../layout/seo';
 export default function HeroSection() {
   return (
     <Wrapper>
-      <SEO title="Home" image="/images/og/hero-og.jpg" description="A frontend chef's world." />
+      <SEO
+        title="Home"
+        image="/static/images/og/hero-og.jpg"
+        description="A frontend chef's world."
+      />
       <ContentWrapper>
         <Heading>
           Chef
