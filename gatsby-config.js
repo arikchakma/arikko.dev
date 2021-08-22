@@ -4,7 +4,7 @@ module.exports = {
     description: `A frontend chef, who is building his world.`,
     author: `@imarikchakma`,
     keywords: `Arik Chakma, Arikko, Arik, Chakma, arikko.dev, Arik Chakma dev, Mr Shadow Whisper`,
-    image: `static/images/og/hero-og.jpg`,
+    image: `https://images.ctfassets.net/fqyf1e2ro1gs/10g8jdUyxYbstFLDq2gkhu/342fb2c08f3c31b0c10cb98c06aed05c/hero-og.jpg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
