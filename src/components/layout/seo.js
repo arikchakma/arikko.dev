@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -94,7 +95,7 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   // eslint-disable-next-line react/no-unused-prop-types
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
 };
 
 export default SEO;
