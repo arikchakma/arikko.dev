@@ -7,7 +7,7 @@ export default function HeroSection() {
     <Wrapper>
       <SEO
         title="Home"
-        image="static/images/og/hero-og.jpg"
+        image="/images/og/hero-og.jpg"
         description="A frontend chef's world."
       />
       <ContentWrapper>
