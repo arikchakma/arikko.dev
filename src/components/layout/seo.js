@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-function SEO({ description, lang, meta, image: metaImage, title }) {
+function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -12,15 +12,18 @@ function SEO({ description, lang, meta, image: metaImage, title }) {
             title
             description
             author
+            keywords
+            image
           }
         }
       }
     `
   );
 
+  const image = site.siteMetadata?.image;
+  const keywords = site.siteMetadata?.keywords;
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
-  const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : null;
 
   return (
     <Helmet
@@ -35,12 +38,20 @@ function SEO({ description, lang, meta, image: metaImage, title }) {
           content: metaDescription,
         },
         {
+          name: `keywords`,
+          content: keywords,
+        },
+        {
           property: `og:title`,
           content: title,
         },
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: image,
         },
         {
           property: `og:type`,
@@ -62,35 +73,11 @@ function SEO({ description, lang, meta, image: metaImage, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ]
-        .concat(
-          metaImage
-            ? [
-                {
-                  property: 'og:image',
-                  content: image,
-                },
-                {
-                  property: 'og:image:width',
-                  content: metaImage.width,
-                },
-                {
-                  property: 'og:image:height',
-                  content: metaImage.height,
-                },
-                {
-                  name: 'twitter:card',
-                  content: 'summary_large_image',
-                },
-              ]
-            : [
-                {
-                  name: 'twitter:card',
-                  content: 'summary',
-                },
-              ]
-        )
-        .concat(meta)}
+        {
+          name: `twitter:image`,
+          content: image,
+        },
+      ].concat(meta)}
     />
   );
 }
@@ -106,12 +93,8 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  // eslint-disable-next-line react/require-default-props
-  image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-  }),
+  // eslint-disable-next-line react/no-unused-prop-types
+  image: PropTypes.string.isRequired,
 };
 
 export default SEO;
