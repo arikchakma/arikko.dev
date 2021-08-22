@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import TextAnimation from '../animations/TextAnimation';
 import SEO from '../layout/seo';
 
 export default function HeroSection() {
@@ -9,7 +10,7 @@ export default function HeroSection() {
       <ContentWrapper>
         <Heading>
           Chef
-          <br /> is cooking!
+          <br /> is <TextAnimation />!
         </Heading>
       </ContentWrapper>
     </Wrapper>
@@ -53,8 +54,6 @@ const Heading = styled.h1`
   background: linear-gradient(270.81deg, #ce63c3 -30.3%, #3b2ed0 95.45%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  user-select: none;
 
   @media screen and (max-width: 768px) {
     font-size: 65px;
