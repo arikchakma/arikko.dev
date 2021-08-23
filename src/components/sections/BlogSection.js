@@ -57,10 +57,10 @@ export default function BlogSection() {
         const { title, date } = post.frontmatter;
 
         return (
-          <div>
-            <h1>{title}</h1>
-            <p>{date}</p>
-            <p>{post.excerpt}</p>
+          <div className="card">
+            <h1 className="card-title">{title}</h1>
+            <p className="card-date">{date}</p>
+            <p className="card-description">{post.excerpt}</p>
           </div>
         );
       })}
