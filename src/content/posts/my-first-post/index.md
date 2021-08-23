@@ -1,7 +1,8 @@
 ---
 title: My First Post
+slug: my-first-post
 date: 2021-23-10
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+spoiler: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 published: true
 ---
 

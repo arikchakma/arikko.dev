@@ -1,7 +1,8 @@
 ---
 title: My Second Post
+slug: my-second-post
 date: 2021-24-10
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+spoiler: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 published: true
 ---
 

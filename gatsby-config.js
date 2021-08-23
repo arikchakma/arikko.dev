@@ -45,4 +45,7 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
   ],
+  flags: {
+    THE_FLAG: false,
+  },
 };
