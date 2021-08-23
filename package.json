@@ -46,6 +46,7 @@
     "Frontend Chef",
     "arikko.dev"
   ],
+  "homepage": "https://arikko.dev",
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",

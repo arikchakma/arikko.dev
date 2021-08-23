@@ -23,5 +23,5 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "workbench.colorTheme": "Community Material Theme Darker"
+  "workbench.colorTheme": "Material Theme Darker"
 }

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export default function BlogSection() {
   const data = useStaticQuery(graphql`
-    query MyQuery {
+    query MDXData {
       allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           slug
