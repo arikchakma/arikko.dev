@@ -1,7 +1,7 @@
 ---
 title: Before You memo()
 slug: before-you-memo
-date: 2021-24-10
+date: 2021-10-24
 spoiler: "Rendering optimizations that come naturally."
 published: true
 ---

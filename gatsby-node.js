@@ -5,8 +5,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve('./src/templates/DishDetails.js');
   const { data } = await graphql(`
     query DishDetails {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         nodes {
+          id
           frontmatter {
             slug
           }
@@ -29,7 +30,10 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `${node.frontmatter.slug}`,
       component: postTemplate,
-      context: { slug: node.frontmatter.slug },
+      context: {
+        id: node.id,
+        slug: node.frontmatter.slug,
+      },
     });
   });
 };

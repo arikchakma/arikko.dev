@@ -1,7 +1,7 @@
 ---
 title: My First Post
 slug: my-first-post
-date: 2021-23-10
+date: 2021-10-23
 spoiler: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 published: true
 ---

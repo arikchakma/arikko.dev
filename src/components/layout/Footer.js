@@ -25,10 +25,12 @@ export default function Footer() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: 50px;
+  margin-bottom: 20px;
+`;
 
 const ContentWrapper = styled.div`
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
 `;
