@@ -1,9 +1,11 @@
 const path = require(`path`);
 
 exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const postTemplate = path.resolve('./src/templates/DishDetails.js');
   const { data } = await graphql(`
     query DishDetails {
-      Dish: allMarkdownRemark {
+      allMarkdownRemark {
         nodes {
           frontmatter {
             slug
@@ -13,13 +15,21 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  data.Dish.nodes.forEach(node => {
-    actions.createPage({
-      path: node.frontmatter.slug,
-      component: path.resolve(`./src/templates/DishDetails.js`),
-      context: {
-        slug: node.frontmatter.slug,
-      },
+  // data.Dish.nodes.forEach(node => {
+  //   actions.createPage({
+  //     path: `${node.frontmatter.slug}`,
+  //     component: path.resolve(`./src/templates/DishDetails.js`),
+  //     context: {
+  //       slug: node.frontmatter.slug,
+  //     },
+  //   });
+  // });
+
+  data.allMarkdownRemark.nodes.forEach(node => {
+    createPage({
+      path: `${node.frontmatter.slug}`,
+      component: postTemplate,
+      context: { slug: node.frontmatter.slug },
     });
   });
 };
