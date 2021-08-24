@@ -7,12 +7,7 @@ module.exports = {
     image: `https://arikko-dev.s3.us-east-2.amazonaws.com/images/hero-og.jpg`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
-      },
-    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
@@ -45,7 +40,4 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
   ],
-  flags: {
-    THE_FLAG: false,
-  },
 };

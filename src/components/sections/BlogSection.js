@@ -7,25 +7,25 @@ export default function BlogSection() {
   // Getting all dishes: posts data from MDX
   const data = useStaticQuery(graphql`
     query DishData {
-      Dish: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-        nodes {
-          frontmatter {
-            title
-            spoiler
-            date(formatString: "Do MMMM YYYY")
-          }
-          id
-          slug
-        }
+  Dish: allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+    nodes {
+      frontmatter {
+        title
+        spoiler
+        date(formatString: "Do MMMM YYYY")
+        slug
       }
+      id
     }
+  }
+}
   `);
   const dishes = data.Dish.nodes;
   return (
     <Wrapper>
       {dishes.map(dish => {
-        const { id, slug } = dish;
-        const { title, spoiler, date } = dish.frontmatter;
+        const { id} = dish;
+        const { title, spoiler, date, slug  } = dish.frontmatter;
 
         return (
           <ContentWrapper key={id}>

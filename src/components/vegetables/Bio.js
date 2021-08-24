@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GatsbyImage } from 'gatsby-plugin-image/dist/src/components/gatsby-image.browser';
 
 export default function Bio() {
   return (
