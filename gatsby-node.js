@@ -3,7 +3,7 @@ const path = require(`path`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const postTemplate = path.resolve('./src/templates/DishDetails.js');
-  const { data } = await graphql(`
+  const data = await graphql(`
     query DishDetails {
       allMarkdownRemark {
         nodes {
