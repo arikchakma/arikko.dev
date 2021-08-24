@@ -7,15 +7,15 @@ export default function BlogSection() {
   // Getting all dishes: posts data from MDX
   const data = useStaticQuery(graphql`
     query DishData {
-      Dish: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      Dish: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           frontmatter {
             title
             spoiler
             date(formatString: "Do MMMM YYYY")
+            slug
           }
           id
-          slug
         }
       }
     }
@@ -24,8 +24,8 @@ export default function BlogSection() {
   return (
     <Wrapper>
       {dishes.map(dish => {
-        const { id, slug } = dish;
-        const { title, spoiler, date } = dish.frontmatter;
+        const { id } = dish;
+        const { title, spoiler, date, slug } = dish.frontmatter;
 
         return (
           <ContentWrapper key={id}>
@@ -47,14 +47,30 @@ export default function BlogSection() {
 
 const Wrapper = styled.section``;
 
-const ContentWrapper = styled.article``;
+const ContentWrapper = styled.article`
+  margin-bottom: 40px;
+`;
 
 const ArticleWrapper = styled.div``;
 
-const HeaderWrapper = styled.header``;
+const HeaderWrapper = styled.header`
+  margin-bottom: 10px;
+`;
 
-const Header = styled.h3``;
+const Header = styled.h3`
+  a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 140%;
+    margin-bottom: 10px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
 
-const Small = styled.small``;
+const Small = styled.small`
+  font-size: 14px;
+`;
 
 const Spoiler = styled.p``;
