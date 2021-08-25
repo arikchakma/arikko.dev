@@ -12,9 +12,11 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
-            author
             keywords
             image
+            social {
+              twitter
+            }
           }
         }
       }

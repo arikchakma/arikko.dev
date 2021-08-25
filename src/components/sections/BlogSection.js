@@ -7,7 +7,7 @@ export default function BlogSection() {
   // Getting all dishes: posts data from MDX
   const data = useStaticQuery(graphql`
     query DishData {
-      Dish: allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      Dish: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           frontmatter {
             title

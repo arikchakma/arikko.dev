@@ -2,15 +2,19 @@ module.exports = {
   siteMetadata: {
     title: `Arik Chakma`,
     description: `A frontend chef, who is building his world.`,
-    author: `@imarikchakma`,
+    author: `Arik Chakma`,
     keywords: `Arik Chakma, Arikko, Arik, Chakma, arikko.dev, Arik Chakma dev, Mr Shadow Whisper`,
+    social: {
+      twitter: `@imarikchakma`,
+    },
     image: `https://arikko-dev.s3.us-east-2.amazonaws.com/images/hero-og.jpg`,
   },
   plugins: [
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {

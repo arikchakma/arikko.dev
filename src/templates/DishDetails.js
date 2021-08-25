@@ -1,4 +1,5 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/layout/layout';
@@ -6,23 +7,51 @@ import SEO from '../components/layout/seo';
 import Bio from '../components/vegetables/Bio';
 
 export default function DishDetails({ data }) {
-  const { html } = data.DishDataDetails;
-  console.log(html);
-  const { title, date } = data.DishDataDetails.frontmatter;
-  console.log(data);
+  const { body } = data.DishDataDetails;
+  const { title, date, spoiler } = data.DishDataDetails.frontmatter;
+  const { previous, next } = data;
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} description={spoiler} />
       <Wrapper>
         <ContentWrapper>
           <Header>
             <Heading>{title}</Heading>
             <Date>{date}</Date>
           </Header>
-          <HTML dangerouslySetInnerHTML={{ __html: html }} />
+          {/* <HTML dangerouslySetInnerHTML={{ __html: html }} /> */}
+          <HTML>
+            <MDXRenderer>{body}</MDXRenderer>
+          </HTML>
         </ContentWrapper>
       </Wrapper>
+      <nav className="blog-post-nav">
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <Link to={`/${previous.slug}`} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={`/${next.slug}`} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+      </nav>
       <Author>Who the hell wrote this?</Author>
       <Bio />
     </Layout>
@@ -30,11 +59,24 @@ export default function DishDetails({ data }) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    DishDataDetails: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+  query ($id: String, $prevDishId: String, $nextDishId: String) {
+    DishDataDetails: mdx(id: { eq: $id }) {
+      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        title
+        spoiler
+      }
+    }
+    previous: mdx(id: { eq: $prevDishId }) {
+      slug
+      frontmatter {
+        title
+      }
+    }
+    next: mdx(id: { eq: $nextDishId }) {
+      slug
+      frontmatter {
         title
       }
     }
@@ -94,6 +136,15 @@ const HTML = styled.div`
   h2 {
     font-size: 26px;
     font-weight: 600;
+
+    a {
+      display: none;
+      margin-right: 5px;
+    }
+
+    :hover a {
+      display: inline-block;
+    }
   }
 
   p {
