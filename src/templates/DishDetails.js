@@ -16,12 +16,17 @@ export default function DishDetails({ data }) {
       <SEO title={title} description={spoiler} />
       <Wrapper>
         <ContentWrapper>
+          {/* Header */}
           <Header>
             <Heading>{title}</Heading>
             <Date>{date}</Date>
           </Header>
-          {/* <HTML dangerouslySetInnerHTML={{ __html: html }} /> */}
+          {/*
+           * This one is for MD
+           * <HTML dangerouslySetInnerHTML={{ __html: html }} />
+           */}
           <HTML>
+            {/* This one is for MDX */}
             <MDXRenderer>{body}</MDXRenderer>
           </HTML>
         </ContentWrapper>
@@ -52,12 +57,14 @@ export default function DishDetails({ data }) {
           </li>
         </ul>
       </nav>
+      {/* Footer */}
       <Author>Who the hell wrote this?</Author>
       <Bio />
     </Layout>
   );
 }
 
+// Quering data from GraphGl
 export const query = graphql`
   query ($id: String, $prevDishId: String, $nextDishId: String) {
     DishDataDetails: mdx(id: { eq: $id }) {
@@ -82,6 +89,8 @@ export const query = graphql`
     }
   }
 `;
+
+// Styling
 
 const Wrapper = styled.section``;
 
