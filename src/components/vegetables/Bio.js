@@ -19,18 +19,18 @@ export default function Bio() {
 }
 
 const Wrapper = styled.main`
-  margin-top: 10px;
-  margin-bottom: 80px;
+  margin-top: ${props => props.theme.margin.medium};
+  color: ${prop => prop.theme.color};
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
-  align-items: center;
 `;
 
 const TextWrapper = styled.div`
-  max-width: 350px;
+  max-width: 310px;
   line-height: 160%;
+  color: ${prop => prop.theme.color};
 `;
 
 const Heading = styled.h1`
@@ -42,8 +42,8 @@ const Heading = styled.h1`
 const Spoiler = styled.p``;
 
 const Image = styled.img`
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 15px;
 `;

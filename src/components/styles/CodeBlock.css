@@ -55,14 +55,6 @@ pre[class*="language-"] ::selection {
   background: hsla(0, 0%, 100%, 0.15);
 }
 
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  border-radius: 0.3em;
-  background: rgba(255, 229, 100, 0.2);
-  color: rgb(32, 32, 32);
-  padding: 0.15em 0.2em 0.05em;
-  white-space: normal;
-}
 
 .token.attr-name {
   color: rgb(173, 219, 103);
@@ -131,7 +123,8 @@ pre[data-line] {
 }
 
 .gatsby-highlight-code-line {
-  background-color: hsla(207, 95%, 15%, 1);
+  background-color: rgba(31, 46, 90, 0.15);
+  /* background-color: hsla(207, 95%, 15%, 1); */
   display: block;
   margin-right: -1.3125rem;
   margin-left: -1.3125rem;
@@ -141,11 +134,12 @@ pre[data-line] {
 }
 
 .gatsby-highlight {
+  margin-top: 1.75rem;
   margin-bottom: 1.75rem;
   margin-left: -1.3125rem;
   margin-right: -1.3125rem;
   border-radius: 10px;
-  background: #011627;
+  background: #080B14;
   -webkit-overflow-scrolling: touch;
   overflow: auto;
 }

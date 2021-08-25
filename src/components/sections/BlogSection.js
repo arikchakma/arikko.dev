@@ -2,6 +2,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 // import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import getCoffee from '../lib/getCoffee';
 
 export default function BlogSection() {
   // Getting all dishes: posts data from MDX
@@ -12,9 +13,10 @@ export default function BlogSection() {
           frontmatter {
             title
             spoiler
-            date(formatString: "Do MMMM YYYY")
+            date(formatString: "MMMM DD, YYYY")
             slug
           }
+          timeToRead
           id
         }
       }
@@ -24,7 +26,7 @@ export default function BlogSection() {
   return (
     <Wrapper>
       {dishes.map(dish => {
-        const { id } = dish;
+        const { id, timeToRead } = dish;
         const { title, spoiler, date, slug } = dish.frontmatter;
 
         return (
@@ -34,7 +36,9 @@ export default function BlogSection() {
                 <Header>
                   <Link to={slug}>{title}</Link>
                 </Header>
-                <Small>{date} • ☕️☕️☕️ 14 min read</Small>
+                <Small>
+                  {date} • {getCoffee(timeToRead)} {timeToRead} min read
+                </Small>
               </HeaderWrapper>
             </ArticleWrapper>
             <Spoiler>{spoiler}</Spoiler>
@@ -50,11 +54,14 @@ const Wrapper = styled.section`
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
-  color: rgb(32, 32, 32);
+  color: ${prop => prop.theme.color};
+  margin-top: ${prop => prop.theme.margin.big};
 `;
 
 const ContentWrapper = styled.article`
-  margin-bottom: 40px;
+  :not(:first-child) {
+    margin-top: ${prop => prop.theme.margin.large};
+  }
 `;
 
 const ArticleWrapper = styled.div``;

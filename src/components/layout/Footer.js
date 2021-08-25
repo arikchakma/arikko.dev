@@ -26,8 +26,8 @@ export default function Footer() {
 }
 
 const Wrapper = styled.div`
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-top: ${p => p.theme.margin.big};
+  margin-bottom: ${p => p.theme.margin.tiny};
 `;
 
 const ContentWrapper = styled.div`
@@ -46,6 +46,7 @@ const LinkWrapper = styled.div`
 
 const TextWrapper = styled.div`
   p {
+    color: ${prop => prop.theme.color};
     font-family: 'Recoleta';
   }
 `;

@@ -1,22 +1,27 @@
 import { Link } from 'gatsby';
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import ThemeContext from '../lib/ThemeContext';
 
 export default function Header() {
+  const context = useContext(ThemeContext);
+  const { theme, changeTheme } = context;
+  console.log(theme);
   return (
     <Wrapper>
       <ContentWrapper>
         <Link to="/">arikko</Link>
-        <Chill>f*cking chill</Chill>
+        <Chill onClick={changeTheme}>f*cking chill</Chill>
       </ContentWrapper>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.header``;
+const Wrapper = styled.header`
+  padding-bottom: 20px;
+`;
 
 const ContentWrapper = styled.main`
-  margin-bottom: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +30,10 @@ const ContentWrapper = styled.main`
     font-weight: 700;
     font-size: 40px;
     text-decoration: none;
+    color: ${prop => prop.theme.color};
   }
 `;
 
-const Chill = styled.p``;
+const Chill = styled.p`
+  color: ${prop => prop.theme.color};
+`;

@@ -112,6 +112,8 @@ body {
   font-family: 'Merriweather', serif;
   line-height: 1;
   font-size: 16px;
+  background-color: ${p => p.theme.backgroundColor};
+  color: ${p => p.theme.color}
 
   /* Optional but important */
   -webkit-font-smoothing: antialiased;
@@ -120,13 +122,26 @@ body {
 a {
   font-family: "Recoleta";
   font-weight: 500;
-  color: #07090e;
+  color: ${prop => prop.theme.secondary};
 }
 
-a:hover, a:active {
+a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
+::selection {
+  background-color: ${prop => prop.theme.secondary};
+  color: white;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  border-radius: 0.3em;
+  background: ${prop => prop.theme.codeSelect};
+  color: ${prop => prop.theme.color};
+  padding: 0.15em 0.2em 0.05em;
+  white-space: normal;
+}
 `;
 
 export default GlobalStyle;
