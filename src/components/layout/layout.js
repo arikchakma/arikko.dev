@@ -24,6 +24,12 @@ function Layout({ children }) {
       changeTheme();
     }
     window.addEventListener('load', toogleTheme);
+    window.addEventListener('reload', toogleTheme);
+
+    return () => {
+      window.removeEventListener('load');
+      window.removeEventListener('reload');
+    };
   });
 
   return (
