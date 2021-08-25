@@ -86,4 +86,6 @@ const Small = styled.small`
   line-height: 130%;
 `;
 
-const Spoiler = styled.p``;
+const Spoiler = styled.p`
+  color: ${prop => prop.theme.color};
+`;

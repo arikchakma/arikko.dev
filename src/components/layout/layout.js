@@ -1,5 +1,5 @@
 import storage from 'local-storage-fallback';
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import ThemeData from '../../data/Theme';
 import ThemeContext from '../lib/ThemeContext';
@@ -18,11 +18,17 @@ function Layout({ children }) {
     storage.setItem('theme', !theme);
   }
 
-  const Theme = theme ? ThemeData.light : ThemeData.dark;
+  useLayoutEffect(() => {
+    function toogleTheme() {
+      changeTheme();
+      changeTheme();
+    }
+    window.addEventListener('load', toogleTheme);
+  });
 
   return (
-    <ThemeContext.Provider value={{ theme, changeTheme }}>
-      <ThemeProvider theme={Theme}>
+    <ThemeContext.Provider value={{ changeTheme }}>
+      <ThemeProvider theme={theme ? ThemeData.light : ThemeData.dark}>
         <Wrapper>
           <GlobalStyle />
           <Header />
