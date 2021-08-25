@@ -1,15 +1,25 @@
+import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Theme from '../../data/Theme';
 import Footer from './Footer';
 import Header from './Header';
 import './layout.css';
 
+const GlobalStyle = createGlobalStyle`
+`;
+
 function Layout({ children }) {
   return (
     <Wrapper>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <MDXProvider>
+        <ThemeProvider theme={Theme}>
+          <GlobalStyle />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
+      </MDXProvider>
     </Wrapper>
   );
 }

@@ -14,16 +14,20 @@ module.exports = {
         path: `${__dirname}/src/content/posts/`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-page-creator',
-      options: {
-        path: `${__dirname}/src/content/posts`,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-page-creator',
+    //   options: {
+    //     path: `${__dirname}/src/content/posts`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        // defaultLayouts: {
+        //   posts: require.resolve('./src/templates/DishDetails.js'),
+        //   default: require.resolve('./src/templates/DishDetails.js'),
+        // },
       },
     },
 
@@ -34,13 +38,6 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/static/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts`,
       },
     },
     `gatsby-transformer-sharp`,

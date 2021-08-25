@@ -131,7 +131,7 @@ a:hover, a:active {
 code[class*="language-"],
 pre[class*="language-"] {
   color: white;
-  background: none;
+  background: black;
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
   font-feature-settings: normal;
   text-align: left;
