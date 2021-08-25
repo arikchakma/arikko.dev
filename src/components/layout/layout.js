@@ -1,19 +1,21 @@
+import storage from 'local-storage-fallback';
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import ThemeData from '../../data/Theme';
 import ThemeContext from '../lib/ThemeContext';
 import GlobalStyle from '../styles/GlobalStyle';
 import Footer from './Footer';
+import './Global.css';
 import Header from './Header';
 
 function Layout({ children }) {
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')) : true
+    storage.getItem('theme') ? JSON.parse(storage.getItem('theme')) : true
   );
 
   function changeTheme() {
     setTheme(t => !t);
-    localStorage.setItem('theme', !theme);
+    storage.setItem('theme', !theme);
   }
 
   const Theme = theme ? ThemeData.light : ThemeData.dark;

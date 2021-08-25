@@ -5,8 +5,7 @@ import ThemeContext from '../lib/ThemeContext';
 
 export default function Header() {
   const context = useContext(ThemeContext);
-  const { theme, changeTheme } = context;
-  console.log(theme);
+  const { changeTheme } = context;
   return (
     <Wrapper>
       <ContentWrapper>
