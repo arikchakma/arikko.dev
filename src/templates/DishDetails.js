@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -21,7 +22,6 @@ export default function DishDetails({ data }) {
           </Header>
           <HTML>
             <MDXRenderer>{body}</MDXRenderer>
-            {/* <HTML dangerouslySetInnerHTML={{ __html: html }} /> */}
           </HTML>
         </ContentWrapper>
       </Wrapper>
