@@ -95,7 +95,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   // eslint-disable-next-line react/no-unused-prop-types
   image: PropTypes.string,
 };

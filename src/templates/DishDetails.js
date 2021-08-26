@@ -158,6 +158,7 @@ const HTML = styled.div`
     }
 
     :hover a {
+      fill: ${p => p.theme.secondary};
       display: inline-block;
     }
   }

@@ -48,5 +48,6 @@ const TextWrapper = styled.div`
   p {
     color: ${prop => prop.theme.color};
     font-family: 'Recoleta';
+    font-weight: 500;
   }
 `;

@@ -7,7 +7,7 @@ import Bio from '../components/vegetables/Bio';
 function IndexPage() {
   return (
     <Layout>
-      <SEO />
+      <SEO title="A Frontend Chef" />
       <Bio />
       <BlogSection />
     </Layout>

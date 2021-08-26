@@ -28,16 +28,16 @@ function Layout({ children }) {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ changeTheme }}>
-      <ThemeProvider theme={theme === 'light' ? ThemeData.light : ThemeData.dark}>
-        <Wrapper>
-          <GlobalStyle />
+    <ThemeProvider theme={theme === 'light' ? ThemeData.light : ThemeData.dark}>
+      <Wrapper>
+        <GlobalStyle />
+        <ThemeContext.Provider value={{ changeTheme }}>
           <Header />
-          <main>{children}</main>
-          <Footer />
-        </Wrapper>
-      </ThemeProvider>
-    </ThemeContext.Provider>
+        </ThemeContext.Provider>
+        <main>{children}</main>
+        <Footer />
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 
@@ -47,6 +47,9 @@ const Wrapper = styled.div`
   padding: 42px 50px;
 
   @media screen and (max-width: 650px) {
+    padding: 50px 30px;
+  }
+  @media screen and (max-width: 450px) {
     padding: 50px 20px;
   }
 `;
