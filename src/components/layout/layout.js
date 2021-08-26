@@ -1,5 +1,5 @@
 import storage from 'local-storage-fallback';
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import ThemeData from '../../data/Theme';
 import ThemeContext from '../lib/ThemeContext';
@@ -9,27 +9,27 @@ import './Global.css';
 import Header from './Header';
 
 function Layout({ children }) {
-  const [theme, setTheme] = useState(
-    storage.getItem('theme') ? JSON.parse(storage.getItem('theme')) : true
-  );
+  const [theme, setTheme] = useState('light');
 
   function changeTheme() {
-    setTheme(t => !t);
-    storage.setItem('theme', !theme);
+    if (theme === 'light') {
+      setTheme('dark');
+      storage.setItem('theme', 'dark');
+    } else {
+      setTheme('light');
+      storage.setItem('theme', 'light');
+    }
   }
 
-  useLayoutEffect(() => {
-    function toogleTheme() {
-      changeTheme();
-      changeTheme();
-    }
-    window.addEventListener('load', toogleTheme);
-    window.addEventListener('refresh', toogleTheme);
-  });
+  useEffect(() => {
+    const localTheme = storage.getItem('theme');
+    if (localTheme === 'light') setTheme('light');
+    if (localTheme === 'dark') setTheme('dark');
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ changeTheme }}>
-      <ThemeProvider theme={theme ? ThemeData.light : ThemeData.dark}>
+      <ThemeProvider theme={theme === 'light' ? ThemeData.light : ThemeData.dark}>
         <Wrapper>
           <GlobalStyle />
           <Header />
