@@ -174,11 +174,12 @@ const HTML = styled.div`
   }
 
   p {
-    margin: ${p => p.theme.margin.small} 0;
+    margin: 0;
+    margin-top: ${p => p.theme.margin.small};
   }
 
   li {
-    margin-bottom: 0.5rem;
+    margin-top: ${p => p.theme.margin.small};
   }
 
   hr {

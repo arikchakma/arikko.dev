@@ -24,4 +24,7 @@
     "javascript": "javascriptreact"
   },
   "workbench.colorTheme": "Material Theme Darker"
+  // "files.associations": {
+  //   "*.md": "mdx"
+  // }
 }
