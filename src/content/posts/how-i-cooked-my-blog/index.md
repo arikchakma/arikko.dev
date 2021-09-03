@@ -25,7 +25,7 @@ Here are those shits, I used to build my blog. By the way, I faced a lot of vers
 
 2. Matter of sorrow that Gatsby build doesn't find `localStorage` or window while building the production bundle as I need to use `localStorage` for saving the theme.
 
-**Solve**: [`local-storage-fallback`](https://www.npmjs.com/package/fallback-local-storage) package really helped me to solve that problem. I used it like this,
+**Solve**: [`local-storage-fallback`](https://github.com/ripeworks/local-storage-fallback) package really helped me to solve that problem. I used it like this,
 
 ```jsx{5, 7, 13}
 import storage from "local-storage-fallback";
@@ -55,6 +55,7 @@ I know it's not the best way for theme switching, but it worked for me. So, no t
 4. For the syntax theme I used [Dan Abramov](https://mobile.twitter.com/dan_abramov)'s overreacted blog's theme.
 
 ## Conclusion
+
 Since, we learn by doing, I learned a lot about them while building it. I faced those problems as I coded this site from scratch, you can use Gatsby's [blog starter](https://github.com/gatsbyjs/gatsby-starter-blog) template.
 
 <!-- ## Why choosing Gatsby over any other platform? -->
