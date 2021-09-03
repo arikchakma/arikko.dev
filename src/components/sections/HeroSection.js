@@ -4,6 +4,7 @@ import TextAnimation from '../animations/TextAnimation';
 import SEO from '../layout/seo';
 
 export default function HeroSection() {
+  console.log('Test Build');
   return (
     <Wrapper>
       <SEO title="A Frontend Chef's World" />
