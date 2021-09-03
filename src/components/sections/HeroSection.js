@@ -24,7 +24,7 @@ export default function HeroSection() {
 
 const Wrapper = styled.div`
   position: relative;
-  background: #0d1321;
+  background: #080c14;
 `;
 
 const ContentWrapper = styled.div`
