@@ -30,10 +30,16 @@ module.exports = {
         icon: `static/images/icons/favicon.svg`, // This path is relative to the root of the site.
       },
     },
-    // `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-styled-components`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`space grotesk`, 'space mono'],
+        display: 'swap',
+      },
+    },
   ],
 };
