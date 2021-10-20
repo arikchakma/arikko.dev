@@ -81,16 +81,25 @@ const HiringWrapper = styled.div`
 
   padding: 0 20px;
   color: #405380;
-  font-family: 'Recoleta';
+
+  /* font-family: 'Recoleta', sans-serif; */
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 25px;
   text-align: center;
+
+  opacity: 0.8;
 `;
 
-const P = styled.p``;
+const P = styled.p`
+  color: #e8eefc;
+`;
 
-const ContactMom = styled.p``;
+const ContactMom = styled.p`
+  color: #e8eefc;
+`;
 
 const ContactLink = styled.a`
+  font-weight: normal;
   background: linear-gradient(270.81deg, #ce63c3 -30.3%, #3b2ed0 95.45%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
