@@ -15,7 +15,7 @@ export default function HeroSection() {
       <HiringWrapper>
         <P>Wanna hire me for your delicious dish?</P>
         <ContactMom>
-          <ContactLink href="/">contact</ContactLink> my mom!
+          <ContactLink href="mailto:hello@arikko.dev">contact</ContactLink> my mom!
         </ContactMom>
       </HiringWrapper>
     </Wrapper>
